@@ -19,7 +19,7 @@ const Country = () => {
   };
   useEffect(() => {
     fetchCountry();
-  }, []);
+  }, [country, state]);
 
   let fetchState = async (countryName) => {
     try {
@@ -30,20 +30,27 @@ const Country = () => {
     }
   };
   useEffect(() => {
-    fetchState(country);
+    if (country) {
+      fetchState(country);
+    }
   }, [country]);
 
   let fetchCity = async (countryName, stateName) => {
     try {
       let response = await fetchCities(countryName, stateName);
       setCityData(response);
+      //   setCountry("");
+      //   setState("");
+      //   setCity("");
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    fetchCity(country, state);
-  }, [state]);
+    if (country && state) {
+      fetchCity(country, state);
+    }
+  }, [country, state]);
   return (
     <div>
       <h1>Select Location </h1>
@@ -55,9 +62,13 @@ const Country = () => {
           console.log(e.target.value);
           console.log(country);
           setCountry(e.target.value);
+          setState("");
+          setCity("");
         }}
       >
-        <option value="">Select Country</option>
+        <option value="" defaultChecked>
+          Select Country
+        </option>
         {countryData && countryData.map((ele) => <option>{ele}</option>)}
       </select>
       <select
@@ -68,9 +79,12 @@ const Country = () => {
           console.log(e.target.value);
           console.log(state);
           setState(e.target.value);
+          setCity("");
         }}
       >
-        <option value="">Select State</option>
+        <option value="" defaultChecked>
+          Select State
+        </option>
         {stateData &&
           stateData.map((ele) => <option value={ele}>{ele}</option>)}
       </select>
@@ -84,10 +98,12 @@ const Country = () => {
           setCity(e.target.value);
         }}
       >
-        <option value="">Select City</option>
+        <option value="" defaultChecked>
+          Select City
+        </option>
         {cityData && cityData.map((ele) => <option value={ele}>{ele}</option>)}
       </select>
-      {country !== "" && state !== "" && city !== "" && (
+      {country && state && city && (
         <p>
           You selected <b>{city}</b>, {state}, {country}
         </p>
