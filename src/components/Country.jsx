@@ -19,7 +19,7 @@ const Country = () => {
   };
   useEffect(() => {
     fetchCountry();
-  }, [country, state]);
+  }, []);
 
   let fetchState = async (countryName) => {
     try {
