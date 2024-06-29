@@ -8,6 +8,8 @@ const Country = () => {
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  const [disableState, setDisableState] = useState(true);
+  const [disableCity, setDisableCity] = useState(true);
 
   let fetchCountry = async () => {
     try {
@@ -39,16 +41,17 @@ const Country = () => {
     try {
       let response = await fetchCities(countryName, stateName);
       setCityData(response);
-      //   setCountry("");
-      //   setState("");
-      //   setCity("");
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
+    if (country) {
+      setDisableState(false);
+    }
     if (country && state) {
       fetchCity(country, state);
+      setDisableCity(false);
     }
   }, [country, state]);
   return (
@@ -81,6 +84,7 @@ const Country = () => {
           setState(e.target.value);
           setCity("");
         }}
+        disabled={disableState}
       >
         <option value="" defaultChecked>
           Select State
@@ -97,6 +101,7 @@ const Country = () => {
           console.log(city);
           setCity(e.target.value);
         }}
+        disabled={disableCity}
       >
         <option value="" defaultChecked>
           Select City
