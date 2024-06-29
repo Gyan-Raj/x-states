@@ -108,7 +108,7 @@ const Country = () => {
         {cityData && cityData.map((ele) => <option value={ele}>{ele}</option>)}
       </select>
       {country && state && city && (
-        <p>
+        <div>
           <span style={{ fontSize: "22px", fontWeight: "700" }}>
             You selected{" "}
           </span>
@@ -122,7 +122,7 @@ const Country = () => {
           >
             {state}, {country}
           </span>
-        </p>
+        </div>
       )}
     </div>
   );
