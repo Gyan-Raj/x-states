@@ -16,7 +16,7 @@ const Country = () => {
       let response = await fetchCountries();
       setCountryData(response);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching countries:", error);
     }
   };
   useEffect(() => {
@@ -28,7 +28,7 @@ const Country = () => {
       let response = await fetchStates(countryName);
       setStateData(response);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching states:", error);
     }
   };
   useEffect(() => {
@@ -42,7 +42,7 @@ const Country = () => {
       let response = await fetchCities(countryName, stateName);
       setCityData(response);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching cities:", error);
     }
   };
   useEffect(() => {

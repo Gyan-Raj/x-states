@@ -8,8 +8,7 @@ export const fetchCountries = async () => {
     // console.log(response.data);
     return response.data;
   } catch (error) {
-    // console.log(error);
-    console.error(error);
+    console.error("Error fetching countries:", error);
   }
 };
 export const fetchStates = async (countryName) => {
@@ -19,8 +18,7 @@ export const fetchStates = async (countryName) => {
     );
     return response.data;
   } catch (error) {
-    // console.log(error);
-    console.error(error);
+    console.error("Error fetching states:", error);
   }
 };
 export const fetchCities = async (countryName, stateName) => {
@@ -31,6 +29,6 @@ export const fetchCities = async (countryName, stateName) => {
     return response.data;
   } catch (error) {
     // console.log(error);
-    console.error(error);
+    console.error("Error fetching cities:", error);
   }
 };
