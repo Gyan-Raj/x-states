@@ -62,8 +62,6 @@ const Country = () => {
         id=""
         value={country}
         onChange={(e) => {
-          console.log(e.target.value);
-          console.log(country);
           setCountry(e.target.value);
           setState("");
           setCity("");

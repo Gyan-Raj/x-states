@@ -8,7 +8,8 @@ export const fetchCountries = async () => {
     // console.log(response.data);
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    console.error(error);
   }
 };
 export const fetchStates = async (countryName) => {
@@ -18,7 +19,8 @@ export const fetchStates = async (countryName) => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    console.error(error);
   }
 };
 export const fetchCities = async (countryName, stateName) => {
@@ -28,6 +30,7 @@ export const fetchCities = async (countryName, stateName) => {
     );
     return response.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
+    console.error(error);
   }
 };
