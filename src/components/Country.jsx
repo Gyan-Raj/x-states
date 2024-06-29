@@ -70,7 +70,8 @@ const Country = () => {
         <option value="" defaultChecked>
           Select Country
         </option>
-        {countryData && countryData.map((ele) => <option>{ele}</option>)}
+        {countryData &&
+          countryData.map((ele) => <option value={ele}>{ele}</option>)}
       </select>
       <select
         name="state"
