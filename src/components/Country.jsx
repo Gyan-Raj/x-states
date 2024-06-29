@@ -110,7 +110,19 @@ const Country = () => {
       </select>
       {country && state && city && (
         <p>
-          You selected <b>{city}</b>, {state}, {country}
+          <span style={{ fontSize: "22px", fontWeight: "700" }}>
+            You selected{" "}
+          </span>
+          <span style={{ fontSize: "28px", fontWeight: "900" }}>{city},</span>
+          <span
+            style={{
+              fontSize: "20px",
+              fontWeight: "600",
+              color: "rgb(171,151,136)",
+            }}
+          >
+            {state}, {country}
+          </span>
         </p>
       )}
     </div>
