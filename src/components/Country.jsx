@@ -112,7 +112,7 @@ const Country = () => {
           <span style={{ fontSize: "22px", fontWeight: "700" }}>
             You selected{" "}
           </span>
-          <span style={{ fontSize: "28px", fontWeight: "900" }}>{city},</span>
+          <span style={{ fontSize: "28px", fontWeight: "900" }}>{city}, </span>
           <span
             style={{
               fontSize: "20px",
